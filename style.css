@@ -1,0 +1,165 @@
+@font-face {
+  font-family: "DM Sans";
+  src: url("fonts/DM_Sans/DMSans-VariableFont_opsz,wght.ttf") format("truetype");
+  font-weight: 100 1000;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Instrument Serif";
+  src: url("fonts/Instrument_Serif/InstrumentSerif-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Instrument Serif";
+  src: url("fonts/Instrument_Serif/InstrumentSerif-Italic.ttf") format("truetype");
+  font-style: italic;
+  font-display: swap;
+}
+:root {
+  --fondo: #f1efe6;
+  --texto: #071c20;
+  --naranja: #f56649;
+  --secundario: #7d898b;
+  --linea: #c9c9c0;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--texto);
+  font-family: "DM Sans", Arial, sans-serif;
+}
+.hero {
+  height: 100vh;
+  min-height: 650px;
+  padding: 0 4.05vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: 16px;
+  left: 4.05vw;
+  right: 4.05vw;
+  height: 1px;
+  background: var(--linea);
+}
+.hero-title {
+  text-align: center;
+  transform: translateY(-5px);
+}
+.eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 0 0 31px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 3px;
+}
+.eyebrow span {
+  width: 48px;
+  height: 1px;
+  display: inline-block;
+  background: var(--naranja);
+}
+h1 {
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: clamp(100px, 10.2vw, 190px);
+  line-height: .79;
+  letter-spacing: -5px;
+  font-weight: 400;
+  margin: 0;
+}
+h1 em {
+  color: var(--naranja);
+  font-weight: 400;
+}
+.destinos {
+  padding: 0 3.85vw 74px;
+  border-bottom: 1px solid var(--linea);
+  margin: 0 4.05vw;
+}
+.destinos-heading {
+  border-top: 1px solid var(--linea);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 0 29px;
+}
+.destinos-heading h2,
+.destinos-heading > span {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1;
+  letter-spacing: 2.4px;
+  font-weight: 600;
+}
+.destinos-heading > span { color: var(--secundario); }
+.destinos-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 14px;
+}
+.destino { display: block; color: inherit; text-decoration: none; min-width: 0; }
+.foto {
+  height: min(28.6vw, 516px);
+  min-height: 320px;
+  border-radius: 9px;
+  overflow: hidden;
+  background: #d8d8cf;
+}
+.foto img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform .55s cubic-bezier(.2,.7,.2,1);
+  will-change: transform;
+}
+.destino:hover .foto img,
+.destino:focus-visible .foto img { transform: scale(1.055); }
+.meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 21px 3px 7px;
+  color: var(--secundario);
+  font-size: 12px;
+  line-height: 1.2;
+  letter-spacing: 1.5px;
+  white-space: nowrap;
+}
+.destino h3 {
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: clamp(31px, 2.55vw, 46px);
+  line-height: 1;
+  font-weight: 400;
+  margin: 0 3px;
+  letter-spacing: -.7px;
+}
+@media (max-width: 1000px) {
+  .destinos-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 28px; }
+  .foto { height: 42vw; min-height: 300px; }
+  .destino h3 { font-size: 40px; }
+}
+@media (max-width: 600px) {
+  .hero { min-height: 570px; height: 100svh; padding: 0 20px; }
+  .hero::after { left: 20px; right: 20px; bottom: 12px; }
+  .eyebrow { font-size: 10px; letter-spacing: 2px; gap: 10px; margin-bottom: 25px; }
+  .eyebrow span { width: 28px; }
+  h1 { font-size: clamp(60px, 14vw, 94px); letter-spacing: -2px; }
+  .destinos { margin: 0 20px; padding: 0 0 45px; }
+  .destinos-heading { padding: 22px 0; }
+  .destinos-heading h2, .destinos-heading > span { font-size: 9px; letter-spacing: 1.3px; }
+  .destinos-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 10px; }
+  .foto { height: 62vw; min-height: 0; border-radius: 7px; }
+  .meta { padding: 12px 1px 7px; font-size: 8px; letter-spacing: .8px; }
+  .destino h3 { font-size: 31px; margin-left: 1px; }
+}
